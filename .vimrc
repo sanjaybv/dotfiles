@@ -14,6 +14,10 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Valloric/YouCompleteMe'
 Plug 'ajmwagar/vim-deus'
 Plug 'chriskempson/base16-vim'
+Plug 'vim-syntastic/syntastic'        " Better Python syntax highlighting (TODO(sanjay): is this actually useful?)
+Plug 'nvie/vim-flake8'                " PEP-8 Pythong syntax highlighting (TODO(sanjay): is this actually useful?)
+Plug 'preservim/nerdtree'             " Directory structure
+Plug 'christoomey/vim-tmux-navigator' " Seamless vim and tmux navigation with Ctrl-h/j/k/l
 call plug#end()
 
 
@@ -143,6 +147,7 @@ nnoremap <silent> <C-_> :nohl<CR><C-l>
 let g:go_fmt_command = "goimports"
 let g:go_autodetect_gopath = 1
 let g:go_list_type = "quickfix"
+let g:go_auto_type_info = 1        " Show :GoInfo automatically when cursor is over it.
 
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
@@ -206,3 +211,30 @@ function! s:build_go_files()
   endif
 endfunction
 
+" Python stuff
+au BufNewFile,BufRead *.py
+  \ set tabstop=4 |
+  \ set softtabstop=4 |
+  \ set shiftwidth=4 |
+  \ set textwidth=79 |
+  \ set expandtab |
+  \ set autoindent |
+  \ set fileformat=unix |
+
+" By default tab does not expand ultisnips, because tab collides with YCM
+" hotkey. So map ultisnips generate to Ctrl-j.
+let g:UltiSnipsExpandTrigger="<c-j>"
+
+
+" python with virtualenv support
+python3 << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  execfile(activate_this, dict(__file__=activate_this))
+EOF
+
+let python_highlight_all=1
+syntax on
