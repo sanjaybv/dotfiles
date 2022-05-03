@@ -211,6 +211,10 @@ function! s:build_go_files()
   endif
 endfunction
 
+" By default tab does not expand ultisnips, because tab collides with YCM
+" hotkey. So map ultisnips generate to Ctrl-j.
+let g:UltiSnipsExpandTrigger="<c-j>"
+
 " Python stuff
 au BufNewFile,BufRead *.py
   \ set tabstop=4 |
@@ -220,21 +224,6 @@ au BufNewFile,BufRead *.py
   \ set expandtab |
   \ set autoindent |
   \ set fileformat=unix |
-
-" By default tab does not expand ultisnips, because tab collides with YCM
-" hotkey. So map ultisnips generate to Ctrl-j.
-let g:UltiSnipsExpandTrigger="<c-j>"
-
-
-" python with virtualenv support
-python3 << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-  project_base_dir = os.environ['VIRTUAL_ENV']
-  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-  execfile(activate_this, dict(__file__=activate_this))
-EOF
 
 let python_highlight_all=1
 syntax on

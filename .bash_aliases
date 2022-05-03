@@ -1,11 +1,17 @@
 alias reload='source $HOME/.bashrc'
 
+alias cl='clear'
+
 # sudo with PATH
 alias sudop='sudo env "PATH=$PATH"'
 
 # Fractional display scaling in Ubuntu
 alias scale-display="gsettings set org.gnome.mutter experimental-features \"['x11-randr-fractional-scaling']\""
 alias scale-display-stop='gsettings reset org.gnome.mutter experimental-features'
+
+# Ubuntu copy and paste from clipboard
+alias xc='xclip -sel clip'
+alias xp='xclip -sel clip -o'
 
  # Git
 alias git='hub'
