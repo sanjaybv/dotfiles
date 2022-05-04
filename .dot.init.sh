@@ -1,8 +1,5 @@
 # created from https://www.atlassian.com/git/tutorials/dotfiles
 
-# initialize the repo
-git init --bare $HOME/.dot
-
 # clone the repo
 git clone --bare git@github:sanjaybv/dotfiles.git $HOME/.dot
 
