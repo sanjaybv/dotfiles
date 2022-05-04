@@ -5,7 +5,7 @@ git clone --bare git@github.com:sanjaybv/dotfiles.git $HOME/.dot
 
 # set the alias for the current shell
 function dot {
-	/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
+	/usr/bin/git --git-dir=$HOME/.dot/ --work-tree=$HOME $@
 }
 
 # checkout and backup if necessary.
