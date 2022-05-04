@@ -1,5 +1,12 @@
 echo "executing .bashrc ...";
 
+# load local startup stuff. .localrc is not checked in.
+if [ -f $HOME/.localrc ]; then
+	source $HOME/.localrc
+else
+	echo "$HOME/.localrc not found"
+fi;
+
 # load aliases
 source $HOME/.aliases
 
