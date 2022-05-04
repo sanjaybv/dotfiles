@@ -1,0 +1,3 @@
+# Lines configured by zsh-newuser-install
+setopt autocd extendedglob
+# End of lines configured by zsh-newuser-install

@@ -1,0 +1,6 @@
+echo "executing .bash_profile ..."
+# called by interactive login shells
+
+# source .bashrc, since that is called only for interactive non-login shells
+[ -f $HOME/.bashrc ] && \
+	source .bashrc
