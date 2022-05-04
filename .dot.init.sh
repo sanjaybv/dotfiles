@@ -1,7 +1,7 @@
 # created from https://www.atlassian.com/git/tutorials/dotfiles
 
 # clone the repo
-git clone --bare git@github:sanjaybv/dotfiles.git $HOME/.dot
+git clone --bare git@github.com:sanjaybv/dotfiles.git $HOME/.dot
 
 # set the alias for the current shell
 function dot {
