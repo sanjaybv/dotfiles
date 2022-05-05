@@ -90,6 +90,7 @@ set t_Co=256
 let g:rehash256 = 1
 
 " Use colorscheme that base16-shell sets
+colorscheme base16-default-dark
 if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
@@ -136,8 +137,8 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" <Ctrl-/> redraws the screen and removes any search highlighting.
-nnoremap <silent> <C-_> :nohl<CR><C-l>
+" Make double-<Esc> clear search highlights
+nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
 
 """""""""""""""""""""
 "      Plugins      "
