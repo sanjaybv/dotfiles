@@ -1,3 +1,6 @@
 echo "executing .zshrc ..."
 
 source $HOME/.commonrc
+
+## prompt setup
+PROMPT='%F{13}%n%f in %F{14}%~%f -> '
