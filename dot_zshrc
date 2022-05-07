@@ -2,5 +2,23 @@ echo "executing .zshrc ..."
 
 source $HOME/.commonrc
 
-## prompt setup
-PROMPT='%F{13}%n%f in %F{14}%~%f -> '
+# Load starship
+eval "$(starship init zsh)"
+
+# Initialize completions
+autoload -Uz compinit; compinit; _comp_options+=(globdots)
+
+# Do not write a duplicate event to the history file.
+setopt HIST_SAVE_NO_DUPS
+
+# Setup vim mode
+bindkey -v
+export KEYTIMEOUT=1
+
+# Edit commands in vim. Just hit v in vim normal mode.
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
+if [ -e /usr/local/bin/brew ]; then eval "$(/usr/local/bin/brew shellenv)"; else eval "$(/opt/homebrew/bin/brew shellenv)"; fi
+source /Users/sanjay/.fsprofile
+eval "$(direnv hook zsh)"

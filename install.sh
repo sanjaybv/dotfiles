@@ -1,13 +1,13 @@
 # Install packages
 if [ "$(uname)" == "Darwin" ]; then
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-	brew install chezmoi tmux vim git cmake python go nodejs fzf
+	brew install chezmoi tmux vim git cmake python go nodejs starship
 else if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-	snap install chezmoi
-	apt install tmux vim git cmake python go nodejs fzf
+	snap install chezmoi starship
+	apt install tmux vim git cmake python go nodejs
 else
 	echo "unknown OS environment $(uname -s). Install the following packages manually."
-	echo "chezmoi tmux vim git cmake python go nodejs fzf"
+	echo "chezmoi tmux vim git cmake python go nodejs starship"
 	read -n 1 -r -p "Press any key to continue"
 fi;
 

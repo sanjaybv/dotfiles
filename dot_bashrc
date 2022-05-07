@@ -1,3 +1,6 @@
 echo "executing .bashrc ...";
 
 source $HOME/.commonrc
+
+# load starship prompt
+eval "$(starship init bash)"
