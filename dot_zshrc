@@ -5,6 +5,9 @@ source $HOME/.commonrc
 # Load starship
 eval "$(starship init zsh)"
 
+# Load fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # Initialize completions
 autoload -Uz compinit; compinit; _comp_options+=(globdots)
 

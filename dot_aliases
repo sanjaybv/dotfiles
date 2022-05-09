@@ -18,6 +18,7 @@ alias gco='git checkout'
 alias gcob='git checkout -b'
 alias gm='git co master && git fetch --prune && git pull origin master'
 
+alias gd='git diff'
 alias gc='git commit' 
 alias gcm='git commit -m' 
 alias gcam='git commit -a -m' 

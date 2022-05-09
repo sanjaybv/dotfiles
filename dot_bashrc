@@ -4,3 +4,6 @@ source $HOME/.commonrc
 
 # load starship prompt
 eval "$(starship init bash)"
+
+# load fzf
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
