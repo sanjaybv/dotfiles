@@ -15,10 +15,11 @@ alias gb='git branch'
 alias gl='git log --date-order --pretty="format:%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset" -n 10'
 alias gld='git log --pretty=format:"%h %ad %s" --date=short --all'
 alias gco='git checkout'
+alias gcor='git checkout $(git branch -r | fzf)'
 alias gcob='git checkout -b'
 alias gm='git co master && git fetch --prune && git pull origin master'
 
-alias gd='git diff'
+alias gd='git diff' 
 alias gc='git commit' 
 alias gcm='git commit -m' 
 alias gcam='git commit -a -m' 
@@ -31,3 +32,8 @@ alias dot='/usr/bin/git --git-dir=$HOME/.dot --work-tree=$HOME'
 
 # Python3
 alias p='python3'
+
+# Kubernetes
+alias k='kubectl'
+alias kgp='kubectl get pods -l app'
+alias kl='kubelogs'
