@@ -1,3 +1,7 @@
+# set editor
+export EDITOR=/opt/homebrew/bin/vim
+export VISUAL=/opt/homebrew/bin/vim
+
 # load local startup stuff. .localrc is not checked in.
 if [ -f $HOME/.localrc ]; then
 	source $HOME/.localrc
