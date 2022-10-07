@@ -2,19 +2,21 @@
 if [ "$(uname)" == "Darwin" ]; then
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	brew install chezmoi tmux vim git cmake python go nodejs starship fzf gh
-else if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-	# For gh cli tool
-	curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
-	echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+else 
+	if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+		# For gh cli tool
+		curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+		echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
 
-	sudo apt update
-	snap install chezmoi starship
-	apt install tmux vim git cmake python go nodejs fzf gh
-else
-	echo "unknown OS environment $(uname -s). Install the following packages manually."
-	echo "chezmoi tmux vim git cmake python go nodejs starship fzf gh"
-	read -n 1 -r -p "Press any key to continue"
-fi;fi;
+		sudo apt update
+		snap install chezmoi starship
+		apt install tmux vim git cmake python go nodejs fzf gh
+	else
+		echo "unknown OS environment $(uname -s). Install the following packages manually."
+		echo "chezmoi tmux vim git cmake python go nodejs starship fzf gh"
+		read -n 1 -r -p "Press any key to continue"
+	fi;
+fi;
 
 echo ">>> Setting up SSH Keys"
 echo "Set up GitHub SSH Keys and then continue. https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account"
