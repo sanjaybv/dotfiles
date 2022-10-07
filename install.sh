@@ -10,7 +10,7 @@ else
 
 		sudo apt update
 		snap install chezmoi starship
-		apt install tmux vim git cmake python go nodejs fzf gh
+		apt install tmux vim git cmake python go nodejs fzf gh curl zsh
 	else
 		echo "unknown OS environment $(uname -s). Install the following packages manually."
 		echo "chezmoi tmux vim git cmake python go nodejs starship fzf gh"
