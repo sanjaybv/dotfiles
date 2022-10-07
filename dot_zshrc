@@ -1,5 +1,3 @@
-echo "executing .zshrc ..."
-
 source $HOME/.commonrc
 
 # Load starship
