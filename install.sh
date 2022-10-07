@@ -14,7 +14,7 @@ else
 	echo "unknown OS environment $(uname -s). Install the following packages manually."
 	echo "chezmoi tmux vim git cmake python go nodejs starship fzf gh"
 	read -n 1 -r -p "Press any key to continue"
-fi;
+fi;fi;
 
 echo ">>> Setting up SSH Keys"
 echo "Set up GitHub SSH Keys and then continue. https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account"
