@@ -17,3 +17,7 @@ then
 	base16_hopscotch
 fi;
 
+# install fun functions
+gch() {
+  git checkout $(git for-each-ref refs/heads/ --format='%(refname:short)' | fzf)
+}
