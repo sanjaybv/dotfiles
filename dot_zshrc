@@ -6,6 +6,10 @@ eval "$(starship init zsh)"
 # Load fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# fzf key bindings in Linux
+[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
+[ -f /usr/share/doc/fzf/examples/completion.zsh ] && source /usr/share/doc/fzf/examples/completion.zsh
+
 # Initialize completions
 autoload -Uz compinit; compinit; _comp_options+=(globdots)
 

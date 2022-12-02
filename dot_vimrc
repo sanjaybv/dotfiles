@@ -10,8 +10,9 @@ call plug#begin()
 Plug 'fatih/vim-go'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'SirVer/ultisnips'
-Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'ctrlpvim/ctrlp.vim' " I've got fzf baby
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'Valloric/YouCompleteMe'
 Plug 'ajmwagar/vim-deus'
 Plug 'chriskempson/base16-vim'
@@ -19,6 +20,7 @@ Plug 'vim-syntastic/syntastic'        " Better Python syntax highlighting (TODO(
 Plug 'nvie/vim-flake8'                " PEP-8 Pythong syntax highlighting (TODO(sanjay): is this actually useful?)
 Plug 'preservim/nerdtree'             " Directory structure
 Plug 'christoomey/vim-tmux-navigator' " Seamless vim and tmux navigation with Ctrl-h/j/k/l
+Plug 'habamax/vim-godot'
 call plug#end()
 
 
@@ -92,8 +94,8 @@ let g:rehash256 = 1
 
 " Use colorscheme that base16-shell sets
 colorscheme base16-default-dark
+let base16colorspace=256
 if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
   source ~/.vimrc_background
 endif
 
@@ -229,3 +231,24 @@ au BufNewFile,BufRead *.py
 
 let python_highlight_all=1
 syntax on
+
+
+" FZF
+nmap <c-p> :Files<cr>
+
+
+"""""""""""""""""""""
+"       Godot       "
+"""""""""""""""""""""
+if !has_key( g:, 'ycm_language_server' )
+  let g:ycm_language_server = []
+endif
+
+let g:ycm_language_server += [
+  \   {
+  \     'name': 'godot',
+  \     'filetypes': [ 'gdscript' ],
+  \     'project_root_files': [ 'project.godot' ],
+  \     'port': 6008
+  \   }
+  \ ]
