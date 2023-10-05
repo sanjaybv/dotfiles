@@ -1,5 +1,18 @@
 # Installation Steps
 
+
+1. Install git
+2. Install brew
+3. Set up GitHub SSH keys
+4. Install base16 colors
+5. Install tmux plugin manager
+6. Checkout dotfiles
+7. Install vim plug
+8. Install vim plugins
+9. Install YouCompleteMe
+
+---
+
 1. Install chezmoi
 	* Mac
 		```sh
