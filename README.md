@@ -1,30 +1,31 @@
 # Installation Steps
 
 
-1. Install git
-2. Install brew
-3. Set up GitHub SSH keys
-4. Install base16 colors
-5. Install tmux plugin manager
-6. Checkout dotfiles
-7. Install vim plug
-8. Install vim plugins
-9. Install YouCompleteMe
+1. Install `git`.
+  - In Ubuntu/Linux Mint
+    ```sh
+	sudo apt install git
+	```
 
----
+1. Install `brew`.
+   ```sh
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/ install.sh)"
+   ```
 
-1. Install chezmoi
-	* Mac
-		```sh
-		/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-		brew install chezmoi tmux vim
-		```
-	* Ubuntu
-		```sh
-		snap install chezmoi
-		apt install tmux vim
-		```
-1. [Set up GitHub SSH keys](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account) for the computer.
+   ```sh
+   echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.profile
+   ```
+
+1. Restart for the above `.profile` change to take effect.
+
+1. Set up [GitHub SSH keys](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/about-ssh).
+
+1. Install `brew` packages.
+   ```sh
+   brew install chezmoi tmux vim git cmake python go nodejs starship fzf gh zsh gcc
+   ```
+
+1. Change default shell to `zsh`.
 
 1. [base16](https://github.com/chriskempson/base16-shell)
 	```sh
@@ -40,7 +41,7 @@
 	```sh
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	```
+	
 
 1. Use `chezmoi` to download dotfiles.
 	```sh
@@ -48,9 +49,13 @@
 	chezmoi apply
 	```
 
-1. [vim ycm plugin](https://github.com/ycm-core/YouCompleteMe)
-	```
-	brew install cmake python go nodejs
+1. Install `vim` plugins
+   ```sh
+   vim +'PlugInstall --sync' +qa
+   ```
+
+1. [Install YouCompleteMe](https://github.com/ycm-core/YouCompleteMe)
+	```sh
 	cd ~/.vim/plugged/YouCompleteMe
 	python3 install.py --all
 	```
