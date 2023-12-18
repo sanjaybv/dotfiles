@@ -1,6 +1,17 @@
 # Installation Steps
 
 
+## Things Installed
+
+* `chezmoi`, `zsh`, `git`, `fzf`
+* `kitty`
+* `lazyvim`
+* Install `g++` for `nvim-treesitter` to work
+* If you see boxes in `nvim`, use a proper mono font.
+
+## Old
+
+
 1. Install `git`.
   - In Ubuntu/Linux Mint
     ```sh
