@@ -39,3 +39,6 @@ alias p='python3'
 alias k='kubectl'
 alias kgp='kubectl get pods -l app'
 alias kl='kubelogs'
+
+# neovim
+alias vim=nvim

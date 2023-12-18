@@ -1,15 +1,15 @@
-# load local startup stuff. .localrc is not checked in.
-if [ -f $HOME/.localrc ]; then
-	source $HOME/.localrc
-fi;
+# Created by Zap installer
+[ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
+plug "zsh-users/zsh-autosuggestions"
+plug "zsh-users/zsh-syntax-highlighting"
+plug "jackharrisonsherlock/common"
+
+# Load and initialise completion system
+autoload -Uz compinit
+compinit
 
 # load aliases
 source $HOME/.aliases
-
-if command -v base16_hopscotch &> /dev/null
-then
-	base16_hopscotch
-fi;
 
 # install fun functions
 gch() {
