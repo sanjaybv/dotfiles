@@ -6,12 +6,6 @@ fi;
 # load aliases
 source $HOME/.aliases
 
-# base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/"
-[ -n "$PS1" ] && \
-    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-        source "$BASE16_SHELL/profile_helper.sh"
-
 if command -v base16_hopscotch &> /dev/null
 then
 	base16_hopscotch
@@ -21,9 +15,6 @@ fi;
 gch() {
   git checkout $(git for-each-ref refs/heads/ --format='%(refname:short)' | fzf)
 }
-
-# Load starship
-eval "$(starship init zsh)"
 
 # Load fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -37,14 +28,5 @@ autoload -Uz compinit; compinit; _comp_options+=(globdots)
 
 # Do not write a duplicate event to the history file.
 setopt HIST_SAVE_NO_DUPS
-
-# Setup vim mode
-bindkey -v
-export KEYTIMEOUT=1
-
-# Edit commands in vim. Just hit v in vim normal mode.
-autoload -Uz edit-command-line
-zle -N edit-command-line
-bindkey -M vicmd v edit-command-line
 
 ## EOF
