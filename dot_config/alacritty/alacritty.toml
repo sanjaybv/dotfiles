@@ -3,6 +3,7 @@
 normal = { family = "CaskaydiaCove Nerd Font Mono" }
 size = 10
 
+
 [colors.primary]
 background = "#2e3440"
 foreground = "#d8dee9"

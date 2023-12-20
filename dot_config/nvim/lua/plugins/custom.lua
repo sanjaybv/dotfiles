@@ -1,4 +1,5 @@
 return {
+  -- The bestest feature
   {
     "christoomey/vim-tmux-navigator",
     keys = {
@@ -7,6 +8,19 @@ return {
       { "<C-j>", "<cmd>TmuxNavigateDown<cr>", desc = "Got to the down pane" },
       { "<C-k>", "<cmd>TmuxNavigateUp<cr>", desc = "Got to the up pane" },
       { "<C-l>", "<cmd>TmuxNavigateRight<cr>", desc = "Got to the right pane" },
+    },
+  },
+
+  -- Download nord colorscheme
+  {
+    "shaunsingh/nord.nvim",
+  },
+
+  -- Set the color scheme
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "nord",
     },
   },
 
