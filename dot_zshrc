@@ -1,32 +1,59 @@
-# Created by Zap installer
-[ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
-plug "zsh-users/zsh-autosuggestions"
-plug "zsh-users/zsh-syntax-highlighting"
-plug "jackharrisonsherlock/common"
+######################
+# Functional Changes #
+######################
 
-# Load and initialise completion system
-autoload -Uz compinit
-compinit
-
-# load aliases
+# Load aliases
 source $HOME/.aliases
 
-# install fun functions
-gch() {
-  git checkout $(git for-each-ref refs/heads/ --format='%(refname:short)' | fzf)
+# Load and initialise completion system
+autoload -Uz compinit && compinit
+
+
+###########
+# Plugins #
+###########
+
+# This is a very minimal plugin manager copied from
+#   https://github.com/mattmc3/zsh_unplugged/blob/main/examples/zshrc.zsh
+
+# where do you want to store your plugins?
+ZPLUGINDIR=${ZPLUGINDIR:-${ZDOTDIR:-$HOME/.config/zsh}/plugins}
+
+##? Clone a plugin, identify its init file, source it, and add it to your fpath.
+function plugin-load {
+  local repo plugdir initfile initfiles=()
+  : ${ZPLUGINDIR:=${ZDOTDIR:-~/.config/zsh}/plugins}
+  for repo in $@; do
+    plugdir=$ZPLUGINDIR/${repo:t}
+    initfile=$plugdir/${repo:t}.plugin.zsh
+    if [[ ! -d $plugdir ]]; then
+      echo "Cloning $repo..."
+      git clone -q --depth 1 --recursive --shallow-submodules \
+        https://github.com/$repo $plugdir
+    fi
+    if [[ ! -e $initfile ]]; then
+      initfiles=($plugdir/*.{plugin.zsh,zsh-theme,zsh,sh}(N))
+      (( $#initfiles )) || { echo >&2 "No init file found '$repo'." && continue }
+      ln -sf $initfiles[1] $initfile
+    fi
+    fpath+=$plugdir
+    (( $+functions[zsh-defer] )) && zsh-defer . $initfile || . $initfile
+  done
 }
 
-# Load fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# make list of the Zsh plugins you use
+plugins=(
+  # plugins that you want loaded first
+  sindresorhus/pure
 
-# fzf key bindings in Linux
-[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
-[ -f /usr/share/doc/fzf/examples/completion.zsh ] && source /usr/share/doc/fzf/examples/completion.zsh
+  # other plugins
+  zsh-users/zsh-completions
 
-# Initialize completions
-autoload -Uz compinit; compinit; _comp_options+=(globdots)
+  # plugins you want loaded last
+  zsh-users/zsh-syntax-highlighting
+  zsh-users/zsh-history-substring-search
+  zsh-users/zsh-autosuggestions
+)
 
-# Do not write a duplicate event to the history file.
-setopt HIST_SAVE_NO_DUPS
-
-## EOF
+# now load your plugins
+plugin-load $plugins
