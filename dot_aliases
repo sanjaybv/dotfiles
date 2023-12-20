@@ -29,9 +29,6 @@ alias gfp='git push origin HEAD --force'
 
 alias gpr='git push origin HEAD && gh pr create --fill --web'
 
-# dot is the alias for git when I'm working on dotfiles
-alias dot='/usr/bin/git --git-dir=$HOME/.dot --work-tree=$HOME'
-
 # Python3
 alias p='python3'
 
