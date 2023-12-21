@@ -8,6 +8,9 @@ source $HOME/.aliases
 # Load and initialise completion system
 autoload -Uz compinit && compinit
 
+# Add cargo (rust) binary path
+export PATH=$PATH:$HOME/.cargo/bin
+
 
 ###########
 # Plugins #
