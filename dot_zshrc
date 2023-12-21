@@ -2,6 +2,11 @@
 # Functional Changes #
 ######################
 
+# load local startup stuff. .localrc is not checked in.
+if [ -f $HOME/.localrc ]; then
+	source $HOME/.localrc
+fi;
+
 # Load aliases
 source $HOME/.aliases
 
