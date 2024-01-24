@@ -16,6 +16,9 @@ autoload -Uz compinit && compinit
 # Add cargo (rust) binary path
 export PATH=$PATH:$HOME/.cargo/bin
 
+# Set default editor to nvim
+export VISUAL=nvim
+export EDITOR="$VISUAL"
 
 ###########
 # Plugins #
