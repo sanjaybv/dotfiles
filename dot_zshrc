@@ -20,6 +20,10 @@ export PATH=$PATH:$HOME/.cargo/bin
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 
+# Add fzf autocomplete and keybindings
+# NB: you may need to follow additional steps to generate the .fzf.zsh file.
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 ###########
 # Plugins #
 ###########
@@ -68,3 +72,4 @@ plugins=(
 
 # now load your plugins
 plugin-load $plugins
+
