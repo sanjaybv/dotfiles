@@ -73,3 +73,5 @@ plugins=(
 # now load your plugins
 plugin-load $plugins
 
+# Configure plugins
+bindkey '^f' autosuggest-accept
