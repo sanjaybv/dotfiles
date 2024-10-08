@@ -1,5 +1,5 @@
 # Need to use this because C-l is taken up by tmux for pane navigation
-alias cl='clear'
+alias cl='clear -x'
 
 # sudo with PATH
 alias sudop='sudo env "PATH=$PATH"'
@@ -44,3 +44,6 @@ alias kl='kubelogs'
 
 # neovim
 alias vim=nvim
+
+# eza
+alias ls=eza
