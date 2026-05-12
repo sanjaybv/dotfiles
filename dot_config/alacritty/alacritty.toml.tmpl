@@ -1,6 +1,8 @@
+{{- $fontSize := promptIntOnce . "fontSize" "Enter Alacritty font size" 12 -}}
+
 [font]
 normal = { family = "CaskaydiaCove Nerd Font Mono" }
-size = {{ promptIntOnce . "font_size" "What is the font size? (macbook pro: 14)" }}
+size = {{ $fontSize }}
 
 
 [colors.primary]
