@@ -1,0 +1,5 @@
+font-family = CaskaydiaCove Nerd Font Mono
+font-size = 14
+command = /bin/zsh -l -c "tmux attach || tmux"
+theme = Nord
+term = xterm-256color
