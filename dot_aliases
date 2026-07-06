@@ -25,7 +25,7 @@ alias gcm='git commit -m'
 alias gcam='git commit -a -m' 
 alias gap='git add --patch' 
 alias gp='git push origin HEAD'
-alias gfp='git push origin HEAD --force'
+alias gfp='git push origin HEAD --force-with-lease'
 alias gpr='git push origin HEAD && gh pr create --fill --web'
 
 
